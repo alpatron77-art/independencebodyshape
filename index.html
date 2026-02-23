@@ -13,7 +13,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/img/516245078_1306336264832117_2368290094586174251_n.jpg" />
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles_scrollfix.css?v=3" />
 </head>
 
 <body>
@@ -148,17 +148,19 @@
     <div>Icarian</div><div>Precor</div><div>Flex Strength</div><div>Star Trac</div>
     <div>Hammer Strength</div><div>Nautilus</div><div>Arsenal Strength</div><div>Cybex</div>
   </div>
-  <div class="photo-grid" aria-label="Gym Floor photos">
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-1.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-2.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-3.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-4.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-5.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-6.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-7.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-8.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-    <figure class="photo"><img src="assets/img/gym-floor/gym-floor-9.jpg" alt="Gym Floor photo" loading="lazy"></figure>
-  </div>
+  <div class="hscroll gym-hscroll" aria-label="Gym Floor photos (scroll)" style="display:flex;gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:10px 2px 6px;">
+
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-1.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-2.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-3.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-4.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-5.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-6.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-7.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-8.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+    <div class="slide" style="flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;"><img src="assets/img/gym-floor/gym-floor-9.jpg" alt="Gym Floor photo" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"></div>
+  
+</div>
 </section>
 
 <section class="section" id="facility">
@@ -437,5 +439,7 @@
   </footer>
 
   <script src="assets/js/main.js" defer></script>
+
+<!-- IBS_VERSION: scrollfix_v3 -->
 </body>
 </html>
