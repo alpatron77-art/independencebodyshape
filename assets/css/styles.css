@@ -163,63 +163,6 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
 .reveal.is-visible{opacity:1; transform:none}
 
 /* Responsive */
-
-/* --- Cardio Cinema gallery --- */
-.cinemaGallery{
-  position:relative;
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:12px;
-}
-.cinemaGallery__item{
-  border-radius: var(--radius);
-  overflow:hidden;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.03);
-  box-shadow: var(--shadow);
-}
-.cinemaGallery__item img{width:100%; height:220px; object-fit:cover; display:block}
-.cinemaGallery__item figcaption{
-  padding:10px 12px;
-  font-weight:800;
-  color:var(--silver);
-  font-size: 14px;
-  border-top:1px solid var(--line);
-  background: rgba(0,0,0,.18);
-}
-.cinemaGallery__tag{
-  margin-top:12px;
-  display:inline-block;
-  padding:8px 12px;
-  border-radius:999px;
-  background: rgba(0,0,0,.52);
-  border:1px solid rgba(255,255,255,.16);
-  font-weight:900;
-  color:var(--silver);
-}
-
-/* --- Staff card (lighter emphasis than a full "manager" feature) --- */
-.staffCard{
-  border-radius: var(--radius2);
-  overflow:hidden;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.03);
-  box-shadow: var(--shadow);
-  display:flex;
-  gap:16px;
-  align-items:stretch;
-}
-.staffCard__img{
-  width:42%;
-  min-height:260px;
-  object-fit:cover;
-  display:block;
-}
-.staffCard__body{padding:18px 18px 18px 0}
-.staffCard__title{margin:0 0 4px 0; font-size:20px}
-.staffCard__meta{margin:0 0 10px 0; color: var(--silver)}
-.staffCard__small{margin:0; color: rgba(255,255,255,.78); line-height:1.5}
-
 @media (max-width: 980px){
   .grid--2{grid-template-columns: 1fr}
   .hero__trust{grid-template-columns:1fr; max-width: 560px}
@@ -229,72 +172,42 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
   .nav{display:none}
   .social{display:none}
   .hamburger{display:block}
-
-  .staffCard__img{min-height:240px}
-
-
 }
 @media (max-width: 520px){
   .container{width:min(var(--max), calc(100% - 26px))}
   .section{padding:56px 0}
   .gallery{grid-template-columns:1fr}
   .hero__content{padding:64px 0 48px}
-
-  .miniActions{flex-direction:column}
-  .btn{width:100%; justify-content:center}
-  .cardPhoto img{min-height:240px}
-  .profile__img{min-height:240px}
-  .staffCard{flex-direction:column}
-  .staffCard__img{width:100%; min-height:220px}
-  .staffCard__body{padding:16px}
-  .cinemaGallery__item img{height:190px}
-
-
 }
 
-/* --- Cardio Room additions --- */
+
+/* --- Minor readability upgrades (keeps original vibe) --- */
+.tagline{ margin-top:-8px; opacity:.9; font-weight:600; letter-spacing:.5px; }
+.brand-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:10px;
+  margin:12px 0 6px;
+}
+.brand-grid > div{
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+}
 .photo-grid{
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap:12px;
   margin-top:12px;
 }
-.photo-grid .photo{
-  margin:0;
-  border-radius:14px;
-  overflow:hidden;
-}
-.photo-grid img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-.equipment-list{
-  margin:10px 0 0 18px;
-  line-height:1.6;
-}
-.subhead{
-  margin-top:18px;
-}
-.muted{
-  opacity:.85;
-}
+.photo-grid .photo{ margin:0; border-radius:14px; overflow:hidden; }
+.photo-grid img{ width:100%; height:100%; display:block; object-fit:cover; }
+.signage{ margin-top:12px; }
+.signage img{ width:100%; max-width:520px; border-radius:14px; display:block; }
+.caption{ opacity:.85; margin-top:6px; font-size:.95em; }
+.manager-photo{ max-width:240px; width:100%; height:auto; border-radius:14px; display:block; margin:12px auto 16px; }
+.no-contracts{ margin-top:10px; }
 @media (min-width: 900px){
+  .brand-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .photo-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-/* --- Meet the Manager image sizing --- */
-.manager-photo{
-  max-width: 220px;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin: 12px auto 16px;
-  display: block;
-}
-@media (min-width: 768px){
-  .manager-photo{
-    max-width: 260px;
-  }
 }
