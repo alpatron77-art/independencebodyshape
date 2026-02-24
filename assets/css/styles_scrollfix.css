@@ -432,13 +432,12 @@ html.force-desktop body{
   }
 }
 
-/* Ensure menu + toggle work in both modes */
-html.force-desktop .menu-toggle{display:block !important;}
-.view-toggle{
-  cursor:pointer;
-  background:none;
-  border:1px solid #fff;
-  color:#fff;
-  padding:6px 12px;
-  font-weight:700;
+/* Hide ONLY the menu button (keep dropdown/nav visible) */
+.menu-toggle {
+  display: none !important;
+}
+
+/* Ensure nav is always visible */
+#site-nav {
+  display: block !important;
 }
