@@ -247,3 +247,187 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
 .gym-hscroll .slide{flex:0 0 auto;width:min(320px,82vw);scroll-snap-align:start;border-radius:14px;overflow:hidden;}
 .gym-hscroll img{width:100%;height:200px;object-fit:cover;display:block;}
 @media (min-width:900px){.gym-hscroll .slide{width:360px;}.gym-hscroll img{height:230px;}}
+
+
+/* --- Full site toggle (Option 1) --- */
+.view-toggle{
+  display:none;
+  width:100%;
+  margin-top:14px;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* Show toggle only in mobile menu */
+@media (max-width: 720px){
+  html:not(.force-desktop) .view-toggle{ display:block; }
+  html.force-desktop .view-toggle{ display:block; } /* keep accessible even in full view on phone */
+}
+
+/* When forcing desktop view on small screens, disable the slide-in mobile menu layout */
+html.force-desktop #site-nav{
+  position:static !important;
+  height:auto !important;
+  width:auto !important;
+  transform:none !important;
+  transition:none !important;
+  padding:0 !important;
+  background:transparent !important;
+  backdrop-filter:none !important;
+  border-left:none !important;
+}
+
+/* Hide hamburger and overlay in forced desktop mode */
+html.force-desktop .menu-toggle{ display:none !important; }
+html.force-desktop #menu-overlay{ display:none !important; }
+
+/* Restore horizontal nav link layout when forced desktop */
+html.force-desktop #site-nav ul{
+  flex-direction:row !important;
+  gap:18px !important;
+  margin-top:0 !important;
+}
+html.force-desktop #site-nav a{
+  padding:0 !important;
+  border:none !important;
+  border-radius:0 !important;
+}
+
+/* Slightly tighter typography on forced desktop to fit phones better */
+html.force-desktop body{
+  font-size: 15px;
+}
+
+
+/* --- Reviews: gold highlight --- */
+.reviews-gold{
+  border:1px solid rgba(255, 210, 77, .22);
+  background: radial-gradient(1200px 420px at 20% 0%, rgba(255,210,77,.14), rgba(0,0,0,0));
+  border-radius:18px;
+  padding:22px 18px;
+}
+.reviews-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.reviews-badge{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255, 210, 77, .28);
+  background: rgba(255, 210, 77, .08);
+}
+.reviews-badge .star{ font-size:18px; line-height:1; }
+.reviews-badge .badge-title{ font-weight:800; letter-spacing:.2px; }
+.reviews-badge .badge-sub{ opacity:.9; font-size:.92em; }
+.reviews-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:14px;
+}
+.review-card{
+  margin:0;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.20);
+  padding:14px 14px 12px;
+}
+.review-card blockquote{
+  margin:0 0 10px;
+  font-size:1.03em;
+  line-height:1.45;
+}
+.review-card figcaption{ opacity:.85; font-weight:700; }
+.reviews-cta{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:14px;
+}
+.reviews-btn{
+  display:inline-flex;
+  justify-content:center;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255, 210, 77, .35);
+  background: rgba(255, 210, 77, .14);
+  font-weight:900;
+}
+.reviews-note{ opacity:.85; margin:0; font-size:.95em; }
+
+@media (min-width: 900px){
+  .reviews-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+
+/* --- Social highlight section --- */
+.social-highlight{
+  margin-top:28px;
+  padding:26px 20px;
+  border-radius:22px;
+  background:
+    radial-gradient(1200px 420px at 20% 0%, rgba(255,210,77,.18), rgba(0,0,0,0)),
+    rgba(10,10,12,.9);
+  border:1px solid rgba(255,210,77,.28);
+  text-align:center;
+}
+.social-highlight h2{
+  font-size:1.6em;
+  margin-bottom:6px;
+}
+.social-sub{
+  max-width:720px;
+  margin:0 auto 18px;
+  opacity:.92;
+  font-size:1.05em;
+}
+.social-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:center;
+}
+.social-btn{
+  width:100%;
+  max-width:420px;
+  padding:14px 16px;
+  border-radius:16px;
+  font-weight:900;
+  letter-spacing:.3px;
+  text-decoration:none;
+  border:1px solid transparent;
+}
+.social-btn.fb{
+  background:#1877f2;
+  color:#fff;
+}
+.social-btn.ig{
+  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+  color:#fff;
+}
+.social-btn.google{
+  background:#fff;
+  color:#111;
+  border-color:rgba(255,210,77,.6);
+}
+@media (min-width:900px){
+  .social-buttons{
+    flex-direction:row;
+    justify-content:center;
+  }
+  .social-btn{
+    width:auto;
+    min-width:220px;
+  }
+}
