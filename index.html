@@ -13,10 +13,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/img/516245078_1306336264832117_2368290094586174251_n.jpg" />
 
-  <link rel="stylesheet" href="assets/css/styles_scrollfix.css?v=3" />
+  <link rel="stylesheet" href="assets/css/styles_scrollfix.css?v=3?v=5" />
 </head>
 
 <body>
+<div class="menu-overlay" id="menu-overlay" hidden></div>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="header" id="top">
@@ -29,7 +30,15 @@
         </span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <button class="menu-toggle" id="menu-toggle" aria-controls="site-nav" aria-expanded="false">
+  <span class="sr-only">Menu</span>
+  <span aria-hidden="true" class="menu-icon"></span>
+</button>
+<nav class="nav" aria-label="Primary" id="site-nav">
+<button class="view-toggle" id="view-toggle" type="button" aria-pressed="false">
+  View Full Site
+</button>
+
         <a href="#about" class="nav__link">About</a>
         <a href="#facility" class="nav__link">Facility</a>
         <a href="#cinema" class="nav__link">Cardio Cinema</a>
@@ -114,7 +123,7 @@
             Independence BodyShape Fitness is a results-focused gym for members who want a real training environment.
             We don’t run classes or personal training — we provide the space, equipment, and atmosphere to train seriously.
           </p>
-          <ul class="checklist">
+          <ul class="checklist" id="nav-links">
             <li><strong>memberships available</strong> — membership options explained in person</li>
             <li>Pricing is kept in-house so you can <strong>tour the gym first</strong></li>
             <li><strong>Complimentary towel service</strong></li>
@@ -286,6 +295,59 @@
       </div>
     </section>
 
+<section id="reviews" class="reviews reviews-gold">
+  <div class="reviews-head">
+    <h2>Member Reviews</h2>
+    <div class="reviews-badge" aria-label="Google Reviews badge">
+      <span class="star" aria-hidden="true">★</span>
+      <span class="badge-title">Google Reviews</span>
+      <span class="badge-sub">Real feedback from members</span>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <!-- Replace the sample cards below with real Google review text + first name/initial -->
+    <figure class="review-card">
+      <blockquote>
+        “Private gym feel, solid equipment, and a focused atmosphere. Easy to stay consistent here.”
+      </blockquote>
+      <figcaption>— Member review</figcaption>
+    </figure>
+
+    <figure class="review-card">
+      <blockquote>
+        “Clean, organized, and no-nonsense. The setup makes training efficient — no wandering around.”
+      </blockquote>
+      <figcaption>— Member review</figcaption>
+    </figure>
+
+    <figure class="review-card">
+      <blockquote>
+        “The cardio room is its own space with entertainment running — makes long sessions way easier.”
+      </blockquote>
+      <figcaption>— Member review</figcaption>
+    </figure>
+  </div>
+
+  <div class="reviews-cta">
+    <a class="btn reviews-btn" href="https://maps.app.goo.gl/LdhPPBMTgHc7HeTw6" target="_blank" rel="noopener">Read all reviews on Google</a>
+    <p class="reviews-note">Want your review featured here? Leave one on Google.</p>
+  </div>
+</section>
+
+<section id="social-highlight" class="social-highlight">
+  <h2>See the Gym in Action</h2>
+  <p class="social-sub">
+    Real training. Real members. Real updates. Follow along to see what’s actually happening inside the gym.
+  </p>
+
+  <div class="social-buttons">
+    <a class="social-btn fb" href="https://www.facebook.com/share/14TqdoHgC3G/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+    <a class="social-btn ig" href="https://www.instagram.com/bodyshape_independence/" target="_blank" rel="noopener">Instagram</a>
+    <a class="social-btn google" href="https://maps.app.goo.gl/LdhPPBMTgHc7HeTw6" target="_blank" rel="noopener">Google</a>
+  </div>
+</section>
+
 <section class="section" id="visit">
       <div class="container grid grid--2">
         <div class="reveal">
@@ -350,7 +412,7 @@
             </div>
             <div class="miniActions">
               <a class="btn btn--primary" href="#contact">Request Info</a>
-              <a class="btn btn--ghost" href="https://www.google.com/maps?q=Independence%20BodyShape%20Fitness" target="_blank" rel="noopener noreferrer">Open in Maps</a>
+              <a class="btn btn--ghost" href="https://maps.app.goo.gl/LdhPPBMTgHc7HeTw6" target="_blank" rel="noopener noreferrer">Open in Maps</a>
             </div>
           </div>
         </div>
@@ -441,5 +503,73 @@
   <script src="assets/js/main.js" defer></script>
 
 <!-- IBS_VERSION: scrollfix_v3 -->
+<script>
+(function () {
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('site-nav');
+  const overlay = document.getElementById('menu-overlay');
+  if (!toggle || !nav || !overlay) return;
+
+  const closeMenu = () => {
+    nav.classList.remove('is-open');
+    overlay.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    document.documentElement.classList.remove('menu-open');
+  };
+
+  const openMenu = () => {
+    nav.classList.add('is-open');
+    overlay.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+    document.documentElement.classList.add('menu-open');
+  };
+
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    expanded ? closeMenu() : openMenu();
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  // Close after tapping a link
+  nav.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target && target.tagName === 'A') closeMenu();
+  });
+
+  // Escape key closes
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+})();
+</script>
+<script>
+(function () {
+  const KEY = 'ibs_view_mode';
+  const root = document.documentElement;
+  const btn = document.getElementById('view-toggle');
+  if (!btn) return;
+
+  function apply(mode) {
+    const full = mode === 'full';
+    root.classList.toggle('force-desktop', full);
+    btn.setAttribute('aria-pressed', full ? 'true' : 'false');
+    btn.textContent = full ? 'View Mobile Site' : 'View Full Site';
+  }
+
+  // init
+  const saved = localStorage.getItem(KEY) || 'mobile';
+  apply(saved);
+
+  btn.addEventListener('click', () => {
+    const nowFull = root.classList.contains('force-desktop');
+    const next = nowFull ? 'mobile' : 'full';
+    localStorage.setItem(KEY, next);
+    apply(next);
+  });
+})();
+</script>
+
+<!-- IBS_VERSION: FINAL_PUBLISH -->
 </body>
 </html>
