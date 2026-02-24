@@ -431,3 +431,14 @@ html.force-desktop body{
     min-width:220px;
   }
 }
+
+/* Ensure menu + toggle work in both modes */
+html.force-desktop .menu-toggle{display:block !important;}
+.view-toggle{
+  cursor:pointer;
+  background:none;
+  border:1px solid #fff;
+  color:#fff;
+  padding:6px 12px;
+  font-weight:700;
+}
