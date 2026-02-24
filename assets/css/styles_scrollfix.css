@@ -494,3 +494,34 @@ html.force-desktop body{
 .review-name{font-weight:900;}
 .review-stars{letter-spacing:1px;}
 .review-text{line-height:1.6;}
+
+/* Mobile spacing polish for reviews */
+@media (max-width: 768px){
+  .section--reviews{
+    padding:44px 16px;
+  }
+  .reviews-grid{
+    gap:14px;
+  }
+  .review-card{
+    padding:16px 16px 14px;
+  }
+  .review-top{
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .review-avatar{
+    width:48px;
+    height:48px;
+  }
+  .review-name{
+    font-size:15px;
+  }
+  .review-stars{
+    font-size:14px;
+  }
+  .review-text{
+    font-size:14.5px;
+    line-height:1.5;
+  }
+}
